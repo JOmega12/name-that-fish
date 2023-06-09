@@ -2,10 +2,8 @@ import { useState } from "react";
 import "./styles/score-board.css";
 const incorrectCount = 0;
 const correctCount = 0;
-// const answersLeft = ["trout", "salmon", "shark", "tuna"];
 
-export const ScoreBoard = ({checkCorrect, unCheckCorrect, answersLeft}) => {
-
+export const ScoreBoard = ({ checkCorrect, unCheckCorrect, answersLeft }) => {
   const finalCorrectCount = correctCount + checkCorrect;
   const finalIncorrectCount = incorrectCount + unCheckCorrect;
 
