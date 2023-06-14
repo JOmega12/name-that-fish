@@ -1,12 +1,11 @@
-const correctCount = 0;
-const totalCount = 0;
-export const FinalScore = ({ checkCorrect, unCheckCorrect }) => (
+
+export const FinalScore = ({ correctCount, incorrectCount }) => (
   <div id="final-score">
     <h1>Your Final Score Was</h1>
     <div id="score">
-      <p>{checkCorrect}</p>
+      <p>{correctCount}</p>
       <hr />
-      <p>{unCheckCorrect}</p>
+      <p>{incorrectCount}</p>
     </div>
   </div>
 );

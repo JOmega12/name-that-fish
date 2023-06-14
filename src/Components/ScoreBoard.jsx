@@ -1,15 +1,11 @@
 import { useState } from "react";
 import "./styles/score-board.css";
-const incorrectCount = 0;
-const correctCount = 0;
 
-export const ScoreBoard = ({ checkCorrect, unCheckCorrect, answersLeft }) => {
-  const finalCorrectCount = correctCount + checkCorrect;
-  const finalIncorrectCount = incorrectCount + unCheckCorrect;
+export const ScoreBoard = ({ correctCount, incorrectCount, answersLeft }) => {
 
   return (
     <div id="score-board">
-      <div>Incorrect 🔻: {finalIncorrectCount}</div>
+      <div>Incorrect 🔻: {incorrectCount}</div>
       <div id="choices-left">
         {answersLeft.map((answer) => (
           <div key={answer} className="choice">
@@ -17,7 +13,7 @@ export const ScoreBoard = ({ checkCorrect, unCheckCorrect, answersLeft }) => {
           </div>
         ))}
       </div>
-      <div>Correct ✅: {finalCorrectCount}</div>
+      <div>Correct ✅: {correctCount}</div>
     </div>
   );
 };
