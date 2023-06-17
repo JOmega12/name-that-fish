@@ -25,29 +25,28 @@ const initialFishes = [
   },
 ];
 function App() {
-  const [currentCount, setCurrentCount] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
-  const isGameOver = currentCount === 4;
+  const isGameOver = currentIndex === 4;
 
-  const answersLeft = initialFishes.map(item => item.name).slice(currentCount);
-  console.log(answersLeft);
-
+  const answersLeft = initialFishes.map(item => item.name).slice(currentIndex);
   
   const handleAnswer = (name) => {
-    if (name === initialFishes[currentCount].name) {
+    if (name === initialFishes[currentIndex].name) {
       setCorrectCount(correctCount + 1);
     } else {
       setIncorrectCount(incorrectCount + 1);
     }
-    setCurrentCount(currentCount + 1);
+    setCurrentIndex(currentIndex + 1);
   };
   return (
     <div className="App">
       {isGameOver && (
         <FinalScore
           correctCount={correctCount}
-          incorrectCount={incorrectCount}
+
+          totalFishes={initialFishes.length}
         />
       )}
       {!isGameOver && (
@@ -58,9 +57,9 @@ function App() {
             answersLeft={answersLeft}
           />
           <GameBoard
-            setCurrentCount={setCurrentCount}
+            setCurrentIndex={setCurrentIndex}
             handleAnswer={handleAnswer}
-            fishData={initialFishes[currentCount]}
+            fishData={initialFishes[currentIndex]}
           />
         </header>
       )}
